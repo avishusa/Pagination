@@ -1,5 +1,6 @@
 const express=require("express");
 const app=express();
+const connection = require('./db/connect.js')
 
 const PORT=process.env.PORT || 3434;
 
@@ -17,6 +18,7 @@ const start = async()=>{
         app.listen(PORT,()=>{
             console.log(`Server is running on ${PORT} ... `)
         })
+        await connection();
     } catch (error) {
         console.log(error)
     }
