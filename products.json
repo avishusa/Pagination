@@ -1,48 +1,54 @@
 [{
     "name":"iphone",
     "price":154,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 },
 {
     "name":"iphone14",
     "price":899,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 },
 {
     "name":"Samsung s22",
     "price":789,
-    "feature":true,
-    "company":"Samsung"
+    "featured":true,
+    "company":"samsung"
+},
+{
+    "name":"Samsung watch",
+    "price":289,
+    "featured":true,
+    "company":"samsung"
 },
 {
     "name":"iwatch",
     "price":354,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 },
 {
     "name":"airpods",
     "price":154,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 },
 {
     "name":"aitag",
     "price":14,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 },
 { 
     "name":"iphone15",
     "price":1154,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 },
 {
     "name":"VisionPro",
     "price":3054,
-    "feature":true,
+    "featured":true,
     "company":"apple"
 }]

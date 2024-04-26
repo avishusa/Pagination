@@ -1,13 +1,38 @@
-const Prodcut = require('../models/product.js')
-const getAllProducts = async(req,res)=>{
-    const data = await Prodcut.find(req.query);
-    console.log("The file is controller product.js and the query is -> ",req.query)
-    res.status(200).json({data})
-}
+const Product = require("../models/product.js");
+const getAllProducts = async (req, res) => {
+  const {company,name,featured,sort,select} = req.query;
+  const queryObject={};
 
-const getAllProductsTesting = async(req,res)=>{
+  if(company){
+    queryObject.company=company;
+  }
 
-    res.status(200).json({msg:"This is the test"})
-}
+  if(name){
+    queryObject.name={$regex:name,$options:"i"};
+  }
 
-module.exports={getAllProducts,getAllProductsTesting}
+  if(featured){
+    queryObject.featured=featured;
+  }
+
+  let apiData=Product.find(queryObject)
+
+  if(sort){
+    let sortFix = sort.replace(","," ");
+    apiData=apiData.sort(sortFix);
+  }
+
+  if(select){
+    let selectFix = select.split(",").join(" ");
+    apiData = apiData.select(selectFix)
+  }
+
+  const myData=await apiData
+  res.status(200).json({ myData });
+};
+
+const getAllProductsTesting = async (req, res) => {
+  res.status(200).json({ msg: "This is the test" });
+};
+
+module.exports = { getAllProducts, getAllProductsTesting };
